@@ -219,8 +219,10 @@ void Poker::drawCard(){
 }
 void Poker::render(){
     if(state == static_cast<short>(GAME_STATE::SHOW)){
-        showCards(dealer.getCards(),"Dealer Cards: ");
-        showCards(player.getCards(),"Player Cards: ");
+        dealer.showCards();
+        player.showCards();
+        //showCards(dealer.getCards(),"Dealer Cards: ");
+        //showCards(player.getCards(),"Player Cards: ");
         if(dealer.getScore() < player.getScore()){
             displayMessage(messages[static_cast<short>(MESSAGE::WIN)]);
         }
@@ -236,7 +238,8 @@ void Poker::render(){
         exit(0);
     }
     if(state == static_cast<short>(GAME_STATE::DEAL)){
-        showCards(player.getCards(),"Player Cards: ");
+        player.showCards();
+        //showCards(player.getCards(),"Player Cards: ");
     }
     //showCards(dealer.getCards(),"Dealer Cards: ");
     //deck.showDeck();
