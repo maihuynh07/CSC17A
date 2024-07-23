@@ -26,6 +26,7 @@ private:
     short startRank; // save start position of a rank, ex: xxx yy then startRank = 0, xx yyy then startRank = 2
     short sizeHighCard; // number of high card in cards
 public:
+    
     PokerHand(): Cards(),discardedCards() {
         this->pokerHandLabel = "Player cards:";
         this->score = 0;

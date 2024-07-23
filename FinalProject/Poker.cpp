@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <cstdlib> // srand()
 #include <sstream> // using stringstream to convert string to int
+#include <regex>
+
 Poker::Poker(){
     this->dealer.setLabel("Dealer cards:");
     this->player.setLabel("Player cards:");
@@ -44,8 +46,15 @@ void Poker::getInput(){
         // display message to players :"Do you want to play a new game (y/n)?";
         Helper::displayMessage(questions[question]); 
         getline(cin >> ws,rep);
+        
         // save answer of players
         transform(rep.begin(), rep.end(), rep.begin(), ::toupper);
+        
+        if(rep.compare("Y")!=0 ){
+            if( rep.compare("N")!=0)
+                throw WrongAnswer();
+        }
+        
         player.setReply(replies[rep]);
         
         // set question to next question
@@ -64,6 +73,12 @@ void Poker::getInput(){
                 getline(cin >> ws,rep);
                 // save answer of players
                 transform(rep.begin(), rep.end(), rep.begin(), ::toupper);
+                
+                if(rep.compare(YES)!=0 ){
+                    if( rep.compare(NO)!=0)
+                        throw WrongAnswer();
+                }
+                
                 player.setReply(replies[rep]);
                 
                 // if player choose  not draw
@@ -80,6 +95,11 @@ void Poker::getInput(){
             if(question == static_cast<short>(QUESTION::NUMBEROFCARD)){
                 // using stringstream to convert rep(string) to numberOfCard(int)
                 getline(cin >> ws,rep);
+                regex pattern("^[1-5]{1}$");
+                if(!regex_match(rep,pattern)){
+                        throw WrongAnswer();
+                }
+                
                 stringstream number(rep);
                 number >> numberOfCard; 
             }
@@ -122,6 +142,12 @@ void Poker::getInput(){
         getline(cin >> ws,rep);
         // save answer of players
         transform(rep.begin(), rep.end(), rep.begin(), ::toupper);
+        
+        if(rep.compare(YES)!=0 ){
+                    if( rep.compare(NO)!=0)
+                        throw WrongAnswer();
+                }
+        
         player.setReply(replies[rep]);
         
         if(player.getReply() == static_cast<short>(ANSWER::YES)){
