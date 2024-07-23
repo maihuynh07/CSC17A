@@ -5,7 +5,7 @@
 #include "Deck.h"
 #include "Helper.h"
 
-class Poker: public Helper{
+class Poker{
 #ifdef oneplayer
     PokerHand player;
     PokerHand dealer;

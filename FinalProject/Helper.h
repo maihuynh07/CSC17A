@@ -50,7 +50,7 @@ public:
     static string sRank(const short& rank); // convert from short to name of rank
     static string sSuit(const short& suit); // convert from short to name of suit
     void showCards(const set<card>& cards,string topic); // display cards on players
-    void displayMessage(string message); // show message to players
+    static void displayMessage(string message); // show message to players
 };
 
 #endif /* HELPER_H */

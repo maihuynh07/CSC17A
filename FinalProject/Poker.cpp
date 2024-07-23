@@ -42,7 +42,7 @@ void Poker::getInput(){
         string rep;
         
         // display message to players :"Do you want to play a new game (y/n)?";
-        displayMessage(questions[question]); 
+        Helper::displayMessage(questions[question]); 
         getline(cin >> ws,rep);
         // save answer of players
         transform(rep.begin(), rep.end(), rep.begin(), ::toupper);
@@ -57,7 +57,7 @@ void Poker::getInput(){
         int numberOfCard = 0; // number of card which player will discard;
         while(state == static_cast<short>(GAME_STATE::DEAL)){
             string rep;
-            displayMessage(questions[question]);
+            Helper::displayMessage(questions[question]);
             
             // if ask player "Do you want to change any card (y/n):"
             if(question == static_cast<short>(QUESTION::CHANGECARD)){
@@ -92,7 +92,7 @@ void Poker::getInput(){
                 while(count<=numberOfCard){
                     cin >> number;
                     if(number<=0 or number>SIZE_HAND){ // guarantee number of card is always smaller SIZE_HAND
-                        displayMessage(messages[static_cast<short>(MESSAGE::INTEGER)]);
+                        Helper::displayMessage(messages[static_cast<short>(MESSAGE::INTEGER)]);
                         count = 1;
                     }
                     else{
@@ -118,7 +118,7 @@ void Poker::getInput(){
     }
     if(state == static_cast<short>(GAME_STATE::REPLAY)){
         string rep;
-        displayMessage(questions[question]); 
+        Helper::displayMessage(questions[question]); 
         getline(cin >> ws,rep);
         // save answer of players
         transform(rep.begin(), rep.end(), rep.begin(), ::toupper);
@@ -224,17 +224,17 @@ void Poker::render(){
         //showCards(dealer.getCards(),"Dealer Cards: ");
         //showCards(player.getCards(),"Player Cards: ");
         if(dealer.getScore() < player.getScore()){
-            displayMessage(messages[static_cast<short>(MESSAGE::WIN)]);
+            Helper::displayMessage(messages[static_cast<short>(MESSAGE::WIN)]);
         }
         else if(dealer.getScore()> player.getScore()){
-            displayMessage(messages[static_cast<short>(MESSAGE::LOOSE)]);
+            Helper::displayMessage(messages[static_cast<short>(MESSAGE::LOOSE)]);
         }
         else
-            displayMessage(messages[static_cast<short>(MESSAGE::TIE)]); 
+            Helper::displayMessage(messages[static_cast<short>(MESSAGE::TIE)]); 
         
     }
     if(status == static_cast<short>(GAME_STATUS::END)){
-        displayMessage(messages[static_cast<short>(MESSAGE::END)]);
+        Helper::displayMessage(messages[static_cast<short>(MESSAGE::END)]);
         exit(0);
     }
     if(state == static_cast<short>(GAME_STATE::DEAL)){
