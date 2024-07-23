@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>Cards.h</itemPath>
       <itemPath>Deck.h</itemPath>
+      <itemPath>DiscardCards.h</itemPath>
       <itemPath>Helper.h</itemPath>
       <itemPath>Poker.h</itemPath>
       <itemPath>PokerHand.h</itemPath>
@@ -60,6 +61,8 @@
       </item>
       <item path="Deck.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="DiscardCards.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Helper.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Helper.h" ex="false" tool="3" flavor2="0">
@@ -102,6 +105,8 @@
       <item path="Deck.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Deck.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DiscardCards.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Helper.cpp" ex="false" tool="1" flavor2="0">
       </item>

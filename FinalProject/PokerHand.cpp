@@ -4,14 +4,7 @@
 
 #include "PokerHand.h"
 #include <iterator>
-PokerHand::PokerHand(): Cards() {
-    this->pokerHandLabel = "Player cards:";
-    this->score = 0;
-}
-PokerHand::PokerHand(string label): Cards() {
-    this->pokerHandLabel = label;
-    this->score = 0;
-}
+
 PokerHand::~PokerHand() {
 }
 bool PokerHand::addCards(short key,card c){
@@ -39,7 +32,7 @@ bool PokerHand::changeCards(stack<card>& ds){
         card c = (*it);
         
         // save discarded card into discardedCards
-        discardedCards.insert(c);
+        discardedCards.insertCard(c);
         
         // remove card at pos in cards
         cards.erase(it);
@@ -339,7 +332,7 @@ bool PokerHand::rank(){
 void PokerHand::reset(){
     cards.clear();
     rankedCards.clear();
-    discardedCards.clear();
+    discardedCards.clearCard();
     while(!discardedPoss.empty()) discardedPoss.pop();
     score = 0;
     reply = -1;

@@ -5,6 +5,7 @@
 #include <string>
 #include "Helper.h"
 #include "Cards.h"
+#include "DiscardCards.h"
 #include <map>
 #include <set>
 #include <stack>
@@ -15,7 +16,9 @@ private:
     string pokerHandLabel ;
     set<card> cards; // set save cards of a poker hand in ASC order by rank (rank = pair.first)
     set<card,comp> rankedCards; // set save cards ranked by suit (suit = pair.second)
-    set<card> discardedCards; // set save cards which is discarded of a poker hand after draw round
+    //set<card> discardedCards; // set save cards which is discarded of a poker hand after draw round
+    DiscardCards<card> discardedCards;
+
     stack<short> discardedPoss; // positions(in cards set) whose card is discarded , values in = {1,2,3,4,5}
     short score;
     short reply;
@@ -23,8 +26,14 @@ private:
     short startRank; // save start position of a rank, ex: xxx yy then startRank = 0, xx yyy then startRank = 2
     short sizeHighCard; // number of high card in cards
 public:
-    PokerHand();
-    PokerHand(string);
+    PokerHand(): Cards(),discardedCards() {
+        this->pokerHandLabel = "Player cards:";
+        this->score = 0;
+    }
+    PokerHand(string label): Cards(),discardedCards() {
+        this->pokerHandLabel = label;
+        this->score = 0;
+    }
     virtual ~PokerHand();
     void setReply(short rep){ reply = rep;};
     short getReply()const { return reply;};
@@ -150,7 +159,7 @@ public:
     void setSizeHighCard(short r){ sizeHighCard = r;}
     short getSizeHighCard()const{return sizeHighCard;}
     
-    set<card> getDiscardedCards()const{return discardedCards;}
+    set<card> getDiscardedCards() {return discardedCards.cards;}
     
     void reset();
     
