@@ -59,6 +59,38 @@ public:
     void AIComputer();
     
     void resetGame(); // reset game after user choose replay
+    
+    
+    // display cards of 1 = deck, 2 = dealer, 3 = player
+    void showCards(int role) { 
+        if (role == 1) deck.showCards(); 
+        else if (role == 2) dealer.showCards();
+        else if (role == 3) player.showCards();
+    }; 
+    
+    // show aspects
+    void showAspects(int aspect){ 
+        switch(aspect){
+            case 1:
+                Helper::displayMessage("Cards is a base class");
+                break;
+            case 2:
+                Helper::displayMessage("PokerHand are subclass of Cards");
+                break;
+            case 3:
+                Helper::displayMessage("PokerHand are subclass of Cards");
+                break;
+            case 4:
+                Helper::displayMessage("discardedCards, a set of DiscardCards object, is a variable member of PokerHand class");
+                break;
+            case 5:
+                Helper::displayMessage("DiscardCards is also a template class");
+                break;
+            default:
+                Helper::displayMessage("Nothing to show");
+        }
+    }
+    
 private:
 
 };

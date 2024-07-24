@@ -265,7 +265,7 @@ void Poker::render(){
     }
     if(status == static_cast<short>(GAME_STATUS::END)){
         Helper::displayMessage(messages[static_cast<short>(MESSAGE::END)]);
-        exit(0);
+        //exit(0);
     }
     if(state == static_cast<short>(GAME_STATE::DEAL)){
         player.showCards();
