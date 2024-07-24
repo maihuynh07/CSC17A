@@ -5,6 +5,8 @@
 #include "Deck.h"
 #include "Helper.h"
 
+class WrongAnswer{};
+class WrongNumber{};
 class Poker{
 #ifdef oneplayer
     PokerHand player;
@@ -20,7 +22,7 @@ class Poker{
     map<short,string> questions; // questions to players through a game
     map<string, short> replies; // answer of players
 public:
-    class WrongAnswer{};
+    
    
     Poker();
     void initializeGame(); // initialize a game

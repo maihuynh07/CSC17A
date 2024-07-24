@@ -50,8 +50,8 @@ void Poker::getInput(){
         // save answer of players
         transform(rep.begin(), rep.end(), rep.begin(), ::toupper);
         
-        if(rep.compare("Y")!=0 ){
-            if( rep.compare("N")!=0)
+        if(rep.compare(YES)!=0 ){
+            if( rep.compare(NO)!=0)
                 throw WrongAnswer();
         }
         
@@ -97,7 +97,7 @@ void Poker::getInput(){
                 getline(cin >> ws,rep);
                 regex pattern("^[1-5]{1}$");
                 if(!regex_match(rep,pattern)){
-                        throw WrongAnswer();
+                        throw WrongNumber();
                 }
                 
                 stringstream number(rep);
