@@ -5,7 +5,7 @@
 
 template <class T>
 class DiscardCards {
-public:
+private:
     set<T> cards;           // save cards is discarded
     set<T> cardsPosition;   // save position of cards.
     int numberOfCards;      // save number of cards is discarded
@@ -27,7 +27,24 @@ public:
     void clearCard(){
         cards.clear();
     }
-private:
+
+    
+    // overloaded operator << and >>
+    friend ostream & operator << (ostream &out, const DiscardCards &c)
+    {
+        out << c.label;
+        out << "," << c.numberOfCards << endl;
+        return out;
+    }
+
+    friend istream & operator >> (istream &in,  DiscardCards &c)
+    {
+        cout << "Enter role: ";
+        in >> c.label;
+        cout << "Enter number of cards: ";
+        in >> c.numberOfCards;
+        return in;
+    }
 
 };
 

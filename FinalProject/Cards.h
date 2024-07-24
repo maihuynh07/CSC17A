@@ -21,6 +21,23 @@ public:
     virtual void showCards() const = 0;  // print cards member
     virtual void showRole() const =0;    // print role
     //virtual void drawCard() const=0;   // save drawn card to disCardCards, and remove cards are drawn from cards member
+
+    // overloaded operator << and >>
+    friend ostream & operator << (ostream &out, const Cards &c)
+    {
+        out << c.role;
+        out << "," << c.numberOfCards<< endl;
+        return out;
+    }
+
+    friend istream & operator >> (istream &in,  Cards &c)
+    {
+        cout << "Enter role: ";
+        in >> c.role;
+        cout << "Enter number of cards: ";
+        in >> c.numberOfCards;
+        return in;
+    }
 };
 
 #endif /* CARDS_H */

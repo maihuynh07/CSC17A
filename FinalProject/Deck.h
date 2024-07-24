@@ -28,6 +28,22 @@ public:
     virtual void showCards() const;   // print cards member
     virtual void showRole() const;   // print cards member
     void drawCard() ;    // save drawn card to disCardCards, and remove cards are drawn from cards member
+    
+    
+    // overloaded operator << and >>
+    friend ostream & operator << (ostream &out, const Deck &c)
+    {
+        out << c.deckLabel;
+        return out;
+    }
+
+    friend istream & operator >> (istream &in,  Deck &c)
+    {
+        cout << "Enter role: ";
+        in >> c.deckLabel;
+        return in;
+    }
+    
 };
 
 #endif /* DECK_H */

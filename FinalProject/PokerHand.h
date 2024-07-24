@@ -160,7 +160,7 @@ public:
     void setSizeHighCard(short r){ sizeHighCard = r;}
     short getSizeHighCard()const{return sizeHighCard;}
     
-    set<card> getDiscardedCards() {return discardedCards.cards;}
+    set<card> getDiscardedCards() {return discardedCards.getCards();};
     
     void reset();
     

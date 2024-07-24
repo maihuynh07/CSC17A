@@ -91,7 +91,22 @@ public:
         }
     }
     
-private:
+    // overloaded operator << and >>
+    friend ostream & operator << (ostream &out, const Poker &c)
+    {
+        out << c.state;
+        out << "," << c.status << endl;
+        return out;
+    }
+
+    friend istream & operator >> (istream &in,  Poker &c)
+    {
+        cout << "Enter state: ";
+        in >> c.state;
+        cout << "Enter status: ";
+        in >> c.status;
+        return in;
+    }
 
 };
 
