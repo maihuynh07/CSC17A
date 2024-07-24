@@ -172,6 +172,9 @@ void Poker::update(){
             status = static_cast<short>(GAME_STATUS::PLAYING);
             
         }
+        else{
+            status = static_cast<short>(GAME_STATUS::END);
+        }
     }
     
     if(state == static_cast<short>(GAME_STATE::DEAL)){
