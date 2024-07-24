@@ -42,5 +42,5 @@ void Helper::showCards(const set<card>& cards,string topic){ // print cards
 
 void Helper::displayMessage(string message){
     cin.clear();
-    cout<<endl<<message;
+    cout<< endl << message;
 }

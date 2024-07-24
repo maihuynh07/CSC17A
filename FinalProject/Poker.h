@@ -7,6 +7,7 @@
 
 class WrongAnswer{};
 class WrongNumber{};
+
 class Poker{
 #ifdef oneplayer
     PokerHand player;

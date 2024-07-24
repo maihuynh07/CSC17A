@@ -107,13 +107,14 @@ void Poker::getInput(){
             // if player type position of cards will be discarded
             if(question == static_cast<short>(QUESTION::DISCARDCARD)){
                 int number, count = 1;
-                
+                cout << endl;
                 // get pos from user input
                 while(count<=numberOfCard){
+                    cout<<"\t "<< count << ".Position of card: ";
                     cin >> number;
                     if(number<=0 or number>SIZE_HAND){ // guarantee number of card is always smaller SIZE_HAND
                         Helper::displayMessage(messages[static_cast<short>(MESSAGE::INTEGER)]);
-                        count = 1;
+                        cout << endl;
                     }
                     else{
                         

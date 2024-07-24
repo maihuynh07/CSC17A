@@ -12,10 +12,10 @@ int main(int argc, char** argv) {
             game.render();
         }
         catch(WrongAnswer){
-            cout << "Error. You must type 'y' or 'n'( yes no question)";
+            cout << "Error. You must type 'y' or 'n'( yes no question)" <<endl;
         }
         catch(WrongNumber){
-            cout << "Error. A number must be between 1 and 5";
+            cout << "Error. A number must be between 1 and 5"<<endl;
         }
     }while(game.getStatus() != static_cast<short>(GAME_STATUS::END));
     return 0;
