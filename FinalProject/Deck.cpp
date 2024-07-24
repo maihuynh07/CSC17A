@@ -1,6 +1,6 @@
 #include <list>
 #include "Deck.h"
-Deck::Deck() : Cards(){
+Deck::Deck() : Cards(SIZE_DECK,"Deck card: "){
     // set label for deck cards
     this->deckLabel = "Deck Cards: ";
     
@@ -81,5 +81,9 @@ void Deck:: showCards() const{
     cout<<endl;
 }   // print cards member
 
+void Deck:: showRole() const {
+    cout << endl;
+    cout << "I am a subclass that have deck role";
+}
 
 

@@ -27,11 +27,11 @@ private:
     short sizeHighCard; // number of high card in cards
 public:
     
-    PokerHand(): Cards(),discardedCards() {
+    PokerHand(): Cards(SIZE_HAND,"Player card: "),discardedCards() {
         this->pokerHandLabel = "Player cards:";
         this->score = 0;
     }
-    PokerHand(string label): Cards(),discardedCards() {
+    PokerHand(string label): Cards(SIZE_HAND,label),discardedCards() {
         this->pokerHandLabel = label;
         this->score = 0;
     }
@@ -165,6 +165,8 @@ public:
     void reset();
     
     virtual void showCards() const;   // print cards member
+    virtual void showRole() const;   // print cards member
+    
     void setLabel(string );           // set label for player or dealer, used to in showCards function
 };
 

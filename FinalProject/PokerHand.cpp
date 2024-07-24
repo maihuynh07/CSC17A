@@ -355,3 +355,8 @@ void PokerHand::showCards() const{ // print cards
 void PokerHand::setLabel(string label){
     this->pokerHandLabel = label;
 }
+
+void PokerHand:: showRole() const {
+    cout << endl;
+    cout << "I am a subclass that have " << pokerHandLabel;
+}

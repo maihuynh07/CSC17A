@@ -1,6 +1,7 @@
 #include "Cards.h"
 
-Cards::Cards() {
-   
+Cards::Cards(int numberOfCards,string role) {
+    this->setNumberOfCards(numberOfCards);
+    this->setRole(role);
 }
 

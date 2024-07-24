@@ -26,6 +26,7 @@ public:
     
     void reset(set<card>&) ;       // reset cards member
     virtual void showCards() const;   // print cards member
+    virtual void showRole() const;   // print cards member
     void drawCard() ;    // save drawn card to disCardCards, and remove cards are drawn from cards member
 };
 
