@@ -78,16 +78,19 @@ void Poker::getInput(){
                     if( rep.compare(NO)!=0)
                         throw WrongAnswer();
                 }
-                
-                player.setReply(replies[rep]);
-                
-                // if player choose  not draw
-                if(replies[rep] == static_cast<short>(ANSWER::NO) ){
-                    
-                    // go to next state
-                    state = static_cast<short>(GAME_STATE::DRAW);
-                    question = static_cast<short>(QUESTION::REPLAY);
-                    return;
+                try{
+                    player.setReply(replies[rep]);
+
+                    // if player choose  not draw
+                    if(replies[rep] == static_cast<short>(ANSWER::NO) ){
+
+                        // go to next state
+                        state = static_cast<short>(GAME_STATE::DRAW);
+                        question = static_cast<short>(QUESTION::REPLAY);
+                        return;
+                    }
+                }catch(...){
+                    throw WrongAnswer();
                 }
             }
             

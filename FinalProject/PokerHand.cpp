@@ -342,7 +342,7 @@ void PokerHand::reset(){
 }
 
 void PokerHand::showCards() const{ // print cards
-    //cout << endl<<"********"<< this->pokerHandLabel <<"***********";
+    cout << endl<<"********"<< pokerHandLabel <<"***********";
     cout << endl;
     cout << "\tRANK\tSUIT";
     cout << endl;
